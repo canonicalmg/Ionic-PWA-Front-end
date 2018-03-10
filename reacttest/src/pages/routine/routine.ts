@@ -9,7 +9,7 @@ import { Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'routine.html'
 })
 export class RoutinePage {
   dayOfWeek = this.getWeekday();
