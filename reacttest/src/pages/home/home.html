@@ -5,15 +5,33 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-content class="card-background-page">
+  <!--<ion-content class="card-background-page">-->
     <ion-list [virtualScroll]="items">
       <ion-item *virtualItem="let item">
         <ion-card>
-          <img height="10%" width="10%" src="{{item.image}}"/>
-          <div class="card-title">{{item.name}}</div>
-          <div class="card-subtitle">41 Listings</div>
+          <img src="{{item.image}}">
+
+          <ion-card-content align-self-center text-center>
+            <h1>{{item.name}} - {{item.sets}} x {{item.reps}} ({{item.weight}} {{item.unit}})</h1>
+          </ion-card-content>
+
+          <ion-row>
+            <ion-col>
+              <button ion-button color="primary" clear small icon-start>
+                <ion-icon name='checkmark'></ion-icon>
+                Complete
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button color="primary" clear small icon-start>
+                <ion-icon name='create'></ion-icon>
+                Edit Volume
+              </button>
+            </ion-col>
+          </ion-row>
+
         </ion-card>
       </ion-item>
     </ion-list>
   </ion-content>
-</ion-content>
+<!--</ion-content>-->
