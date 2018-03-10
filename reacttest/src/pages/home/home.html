@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title id="routineTitle">Routine - {{dayOfWeek}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-content class="card-background-page">
+    <ion-list [virtualScroll]="items">
+      <ion-item *virtualItem="let item">
+        <ion-card>
+          <img height="10%" width="10%" src="{{item.image}}"/>
+          <div class="card-title">{{item.name}}</div>
+          <div class="card-subtitle">41 Listings</div>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-content>
