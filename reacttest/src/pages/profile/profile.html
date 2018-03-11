@@ -1,17 +1,67 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
+  <ion-nav #mycontent [root]="rootPage"></ion-nav>
+  <ion-navbar color="mPrimary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="center-vertical">
+          <ion-title align="center">{{muscleOrExercise}} Profile</ion-title>
+        </ion-col>
+        <ion-col>
+          <button float-right ion-button strong clear class="larger-text" color="white">
+            <ion-icon name="share"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
 </ion-header>
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list>
+      <p>some menu content, could be list items</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
-<ion-content>
+<ion-content [hidden]="muscleOrExercise!='Muscle'" padding color="fill">
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
+    <div ng-repeat="muscle in muscles">
+      <ion-item-sliding *ngFor="let muscle of muscles">
+        <ion-item (click)="openModalWithParams(muscle)">
+          <h2>{{muscle.name}}</h2>
+          <p style="font-size:1.2rem;">{{muscle.status}}</p>
+          <ion-note item-end class="score-note" >
+            Score: {{muscle.score}} ({{muscle.score_verbose}})
+          </ion-note>
+        </ion-item>
+      </ion-item-sliding>
+    </div>
   </ion-list>
 </ion-content>
+
+<ion-content [hidden]="muscleOrExercise!='Exercise'" padding color="fill">
+  <ion-list>
+    <div ng-repeat="exercise in exercises">
+      <ion-item-sliding *ngFor="let exercise of exercises"x>
+        <ion-item>
+          <h2 style="color:#498bff;">{{exercise.name}}</h2>
+          <p>{{exercise.sets}} sets of {{exercise.reps}} reps</p>
+          <ion-note item-end >
+            {{exercise.weight}} {{exercise.unit}}
+          </ion-note>
+        </ion-item>
+      </ion-item-sliding>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button color="mPrimary" block (click)="presentActionSheet()">
+      Change View
+    </button>
+  </ion-toolbar>
+</ion-footer>

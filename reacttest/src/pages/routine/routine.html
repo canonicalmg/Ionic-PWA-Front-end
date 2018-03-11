@@ -1,21 +1,45 @@
 <ion-header>
+  <ion-nav #mycontent [root]="rootPage"></ion-nav>
   <ion-navbar color="mPrimary">
-    <ion-title text-center>Routine - {{dayOfWeek}}</ion-title>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="center-vertical">
+          <ion-title align="center">Routine - {{dayOfWeek}}</ion-title>
+        </ion-col>
+        <ion-col>
+          <button float-right ion-button strong clear class="larger-text-menu-btn" color="white">
+            <ion-icon name="share"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
 </ion-header>
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list>
+      <p>some menu content, could be list items</p>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
 
 <ion-content padding color="fill">
 
   <ion-list>
     <div ng-repeat="item in items">
-      <ion-item-sliding *ngFor="let item of items"x>
+      <ion-item-sliding *ngFor="let item of items" x>
         <ion-item>
           <ion-avatar item-start>
             <img style="height:auto;width:12vh;" class="img-responsive" [src]="item.image">
           </ion-avatar>
-          <h2 style="color:#498bff;">{{item.name}}</h2>
+          <h2>{{item.name}}</h2>
           <p>{{item.sets}} sets of {{item.reps}} reps</p>
-          <ion-note item-end >
+          <ion-note item-end>
             {{item.weight}} {{item.unit}}
           </ion-note>
         </ion-item>
@@ -35,7 +59,7 @@
           </button>
         </ion-item-options>
 
-        <ion-item-options (ionSwipe)="download(item)">
+        <ion-item-options (ionSwipe)="closeSlide(item)">
           <button ion-button color="mPrimary" expandable (click)="closeCard(item)">
             <ion-icon name="trash" class="expand-hide"></ion-icon>
             <div class="expand-hide">Dismiss</div>
@@ -45,43 +69,6 @@
       </ion-item-sliding>
     </div>
   </ion-list>
-
-
-
-
-  <!--<ion-list>-->
-    <!--<div ng-repeat="item in items">-->
-      <!--<ion-card *ngFor="let item of items">-->
-        <!--<ion-card-header style="padding-bottom:0px;" class="closeCard" text-end>-->
-          <!--<ion-icon name='close' (click)="closeCard(item.pk)" color="dark"></ion-icon>-->
-        <!--</ion-card-header>-->
-        <!--<ion-card-content text-center>-->
-
-
-          <!--<ion-card-title style="padding-top:0px;" primary>{{item.name}}</ion-card-title>-->
-          <!--<img src="{{item.image}}">-->
-        <!--</ion-card-content>-->
-
-        <!--<ion-card-content align-self-center text-center>-->
-          <!--<h2>{{item.sets}} sets of {{item.reps}} reps ({{item.weight}} {{item.unit}})</h2>-->
-        <!--</ion-card-content>-->
-        <!--<ion-grid>-->
-          <!--<ion-row>-->
-            <!--<ion-col>-->
-              <!--<button ion-button (click)="completeClick(item.pk)" color="light" icon-start>-->
-                <!--<ion-icon name='checkmark'></ion-icon>-->
-                <!--Complete-->
-              <!--</button>-->
-            <!--</ion-col>-->
-            <!--<ion-col>-->
-              <!--<button (click)="modifyClick(item.pk)" ion-button color="light" icon-start>-->
-                <!--<ion-icon name='create'></ion-icon>-->
-                <!--Modify-->
-              <!--</button>-->
-            <!--</ion-col>-->
-          <!--</ion-row>-->
-        <!--</ion-grid>-->
-      <!--</ion-card>-->
-    <!--</div>-->
-  <!--</ion-list>-->
 </ion-content>
+
+

@@ -29,4 +29,13 @@ ion-card {
   margin-bottom:-8vh !important;
 }
 
+.center-vertical {
+  display: flex!important;
+  align-content: center!important;
+  align-items: center!important;
+}
 
+.larger-text-menu-btn{
+  font-size:1.5em;
+  padding-right:0.5em;
+}

@@ -20,7 +20,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Bench-press-1.png',
+      'image': 'assets/imgs/Bench-press-1.png',
       'pk': 1
     },
     {
@@ -29,7 +29,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Squats-2-2.png',
+      'image': 'assets/imgs/Squats-2-2.png',
       'pk': 2
     },
     {
@@ -38,7 +38,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Bench-press-1.png',
+      'image': 'assets/imgs/Bench-press-1.png',
       'pk': 3
     },
     {
@@ -47,7 +47,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Squats-2-2.png',
+      'image': 'assets/imgs/Squats-2-2.png',
       'pk': 4
     },
     {
@@ -56,7 +56,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Bench-press-1.png',
+      'image': 'assets/imgs/Bench-press-1.png',
       'pk': 5
     },
     {
@@ -65,7 +65,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Squats-2-2.png',
+      'image': 'assets/imgs/Squats-2-2.png',
       'pk': 6
     },
     {
@@ -74,7 +74,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Bench-press-1.png',
+      'image': 'assets/imgs/Bench-press-1.png',
       'pk': 7
     },
     {
@@ -83,7 +83,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Squats-2-2.png',
+      'image': 'assets/imgs/Squats-2-2.png',
       'pk': 8
     },
     {
@@ -92,7 +92,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Bench-press-1.png',
+      'image': 'assets/imgs/Bench-press-1.png',
       'pk': 9
     },
     {
@@ -101,7 +101,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Squats-2-2.png',
+      'image': 'assets/imgs/Squats-2-2.png',
       'pk': 10
     },
     {
@@ -110,7 +110,7 @@ export class RoutinePage {
       'reps': "5",
       'weight': "225",
       'unit': "lb",
-      'image': '../../assets/imgs/Dead-lifts-2-2.png',
+      'image': 'assets/imgs/Dead-lifts-2-2.png',
       'pk': 11
     }
   ];
@@ -143,11 +143,11 @@ export class RoutinePage {
     loader.present();
   }
 
-  download(item: ItemSliding) {
-    this.expandAction(item, 'downloading', 'Login was downloaded.');
+  closeSlide(item: ItemSliding) {
+    this.expandCloseSlide(item, 'closeSlideing', 'Login was closeSlideed.');
   }
 
-  expandAction(item: ItemSliding, _: any, text: string) {
+  expandCloseSlide(item: ItemSliding, _: any, text: string) {
     let toast = this.toastCtrl.create({
       message: item['name'] + " has been removed from today's workout",
       duration: 2000,
