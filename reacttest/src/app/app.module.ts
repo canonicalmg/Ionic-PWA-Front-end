@@ -11,6 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ModalPageModule } from '../pages/muscleModal/muscleModal.module';
+import { AuthService } from '../providers/auth-service/auth-service';
+import { LoginPage } from '../pages/login/login'
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { ModalPageModule } from '../pages/muscleModal/muscleModal.module';
     ContactPage,
     RoutinePage,
     TabsPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -32,11 +35,13 @@ import { ModalPageModule } from '../pages/muscleModal/muscleModal.module';
     ContactPage,
     RoutinePage,
     TabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService
   ]
 })
 export class AppModule {}
