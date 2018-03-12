@@ -6,6 +6,7 @@ import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ItemSliding, ToastController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @Component({
   selector: 'page-home',
@@ -115,7 +116,8 @@ export class RoutinePage {
     }
   ];
 
-  constructor(private zone: NgZone,
+  constructor(private statusBar: StatusBar,
+              private zone: NgZone,
               public events: Events,
               public navCtrl: NavController,
               public loadingCtrl: LoadingController,
@@ -123,6 +125,7 @@ export class RoutinePage {
               public toastCtrl: ToastController,
               public plt: Platform) {
     this.plt.ready().then((readySource) => {
+      this.statusBar.overlaysWebView(false);
       this.showToast("Swipe left or right for more options");
       console.log('Platform ready from', readySource);
       // Platform now ready, execute any required native code

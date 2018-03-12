@@ -6,11 +6,82 @@
     </ion-buttons>
     <ion-title>{{muscle.name}}</ion-title>
   </ion-navbar>
-
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="score">
+        My Score
+      </ion-segment-button>
+      <ion-segment-button value="exercises">
+        Exercises Used
+      </ion-segment-button>
+      <ion-segment-button value="info">
+        Info
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding>
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'score'">
+      <ion-card style="position:absolute; top:0vh; height:15vh; width:85vw;">
+        <ion-card-header>
+          Muscle Score: {{muscle.score}} ({{muscle.score_verbose}})
+        </ion-card-header>
+        <p>Status: {{muscle.status}} <ion-icon color="coolBlue" (click)="infoSegment()" name="alert"></ion-icon></p>
+      </ion-card>
 
+      <div id="bodyImageContainer">
+        <img src="assets/imgs/bodyMap/body.jpg" class="mainBody">
+        <img src="{{muscle.image}}" class="img-responsive bodyImageMuscle">
+      </div>
 
+    </ion-list>
+
+    <ion-item-group *ngSwitchCase="'exercises'" no-lines>
+      <ion-item-divider color="light">Major Exercises</ion-item-divider>
+      <div ng-repeat="exercises in muscle.exercises.major">
+        <ion-item-sliding *ngFor="let exercise of muscle.exercises.major" >
+          <ion-item>
+            <ion-avatar item-start>
+              <img style="height:auto;width:12vh;" class="img-responsive" [src]="exercise.image">
+            </ion-avatar>
+            <h2>{{exercise.name}}</h2>
+          </ion-item>
+
+          <ion-item-options side="left">
+            <button ion-button color="coolBlue" (click)="infoExercise(item)">
+              <ion-icon name="trash"></ion-icon>
+              Info
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+      <ion-item-divider color="light">Minor Exercises</ion-item-divider>
+      <div ng-repeat="exercises in muscle.exercises.minor">
+        <ion-item-sliding *ngFor="let exercise of muscle.exercises.minor" >
+          <ion-item>
+            <ion-avatar item-start>
+              <img style="height:auto;width:12vh;" class="img-responsive" [src]="exercise.image">
+            </ion-avatar>
+            <h2>{{exercise.name}}</h2>
+          </ion-item>
+
+          <ion-item-options side="left">
+            <button ion-button color="coolBlue" (click)="infoExercise(item)">
+              <ion-icon name="trash"></ion-icon>
+              Info
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+    </ion-item-group>
+
+    <ion-list *ngSwitchCase="'info'">
+      <p>info for  {{muscle.name}}</p>
+    </ion-list>
+  </div>
 </ion-content>
+
+

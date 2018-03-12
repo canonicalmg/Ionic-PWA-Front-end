@@ -37,31 +37,146 @@ export class ContactPage {
         'name': "Biceps",
         'score': "2.9",
         'score_verbose': 'Intermediate',
-        'status': "Needs Attention"
+        'status': "Needs Attention",
+        'image': "assets/imgs/bodyMap/biceps.png",
+        'exercises': {
+          'major': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            }
+          ],
+          'minor': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            },
+            {
+              'name': "Squat",
+              'image': "assets/imgs/Squats-2-2.png"
+            },
+            {
+              'name': "Deadlift",
+              'image': "assets/imgs/Dead-lifts-2-2.png"
+            }
+          ]
+        }
       },
       {
         'name': "Triceps",
         'score': "4.8",
         'score_verbose': 'Elite',
-        'status': "Okay"
+        'status': "Okay",
+        'image': "assets/imgs/bodyMap/triceps.png",
+        'exercises': {
+          'major': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            }
+          ],
+          'minor': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            },
+            {
+              'name': "Squat",
+              'image': "assets/imgs/Squats-2-2.png"
+            },
+            {
+              'name': "Deadlift",
+              'image': "assets/imgs/Dead-lifts-2-2.png"
+            }
+          ]
+        }
       },
       {
         'name': "Pectorials",
         'score': "4.2",
         'score_verbose': 'Elite',
-        'status': "Okay"
+        'status': "Okay",
+        'image': "assets/imgs/bodyMap/chest.png",
+        'exercises': {
+          'major': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            }
+          ],
+          'minor': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            },
+            {
+              'name': "Squat",
+              'image': "assets/imgs/Squats-2-2.png"
+            },
+            {
+              'name': "Deadlift",
+              'image': "assets/imgs/Dead-lifts-2-2.png"
+            }
+          ]
+        }
       },
       {
         'name': "Traps",
         'score': "2.1",
         'score_verbose': 'Intermediate',
-        'status': "Needs Attention"
+        'status': "Needs Attention",
+        'image': "assets/imgs/bodyMap/traps.png",
+        'exercises': {
+          'major': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            }
+          ],
+          'minor': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            },
+            {
+              'name': "Squat",
+              'image': "assets/imgs/Squats-2-2.png"
+            },
+            {
+              'name': "Deadlift",
+              'image': "assets/imgs/Dead-lifts-2-2.png"
+            }
+          ]
+        }
       },
       {
         'name': "Lats",
         'score': "3.3",
         'score_verbose': 'Advanced',
-        'status': "Okay"
+        'status': "Okay",
+        'image': "assets/imgs/bodyMap/lats.png",
+        'exercises': {
+          'major': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            }
+          ],
+          'minor': [
+            {
+              'name': "Bench Press",
+              'image': "assets/imgs/Bench-press-1.png"
+            },
+            {
+              'name': "Squat",
+              'image': "assets/imgs/Squats-2-2.png"
+            },
+            {
+              'name': "Deadlift",
+              'image': "assets/imgs/Dead-lifts-2-2.png"
+            }
+          ]
+        }
       },
     ]
   }
@@ -119,13 +234,6 @@ export class ContactPage {
     actionSheet.present();
   }
 
-  presentProfileModal() {
-    // let profileModal = this.modalCtrl.create(ModalContentPage);
-    // profileModal.onDidDismiss(data => {
-    //   console.log(data);
-    // });
-    // profileModal.present();
-  }
 }
 
 
