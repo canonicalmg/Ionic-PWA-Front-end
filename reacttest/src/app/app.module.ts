@@ -13,6 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ModalPageModule } from '../pages/muscleModal/muscleModal.module';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { LoginPage } from '../pages/login/login'
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { LoginPage } from '../pages/login/login'
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    ModalPageModule
+    ModalPageModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

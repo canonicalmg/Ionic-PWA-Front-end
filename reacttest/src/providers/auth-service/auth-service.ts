@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
 
 export class User {
   name: string;
@@ -15,12 +16,20 @@ export class User {
 @Injectable()
 export class AuthService {
   currentUser: User;
+  datum: Observable<any>;
+  constructor(public httpClient: HttpClient){
+  }
 
   public login(credentials) {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
+        //https://ionic-pwa-backend.herokuapp.com/
+        this.datum = this.httpClient.post('https://ionic-pwa-backend.herokuapp.com/api/testpost', {'foo':'bar'}, { "headers": {"Content-Type": "application/json"} })
+        this.datum.subscribe(data => {
+          console.log("data = ", data);
+        });
         // At this point make a request to your backend to make a real check!
         let access = (credentials.password === "pass" && credentials.email === "email");
         this.currentUser = new User('Simon', 'saimon@devdactic.com');
